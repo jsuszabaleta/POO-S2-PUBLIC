@@ -8,7 +8,7 @@ public class Barbero extends Persona {
         super("BAR-" + contadorBarbero, nombre, telefono);
         this.calificacion = calificacion;
         this.especializacion = especializacion;
-        this.produccionSemanal = new[7];
+        this.produccionSemanal = new double [7];
         contadorBarbero++;
 
     }
