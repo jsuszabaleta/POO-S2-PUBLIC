@@ -1,3 +1,4 @@
+package barberia;
 public enum TipoServicio {
     CORTE_CABELLO("Corte de Cabello", 15000.0, 30),
     AFEITADO("Afeitado", 10000.0, 20),

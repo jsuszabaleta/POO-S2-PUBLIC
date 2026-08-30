@@ -1,3 +1,4 @@
+package barberia;
 public abstract class Persona {
     private String id;
     private String nombre;

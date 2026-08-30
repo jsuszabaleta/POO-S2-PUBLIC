@@ -1,3 +1,4 @@
+package barberia;
 public class ClienteFrecuente extends Cliente{
     private final double descuento = 0.15;
 

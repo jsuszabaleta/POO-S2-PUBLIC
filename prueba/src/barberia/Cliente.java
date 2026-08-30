@@ -1,3 +1,4 @@
+package barberia;
 public class Cliente extends Persona{
     private static int contadorCliente = 0;
 
