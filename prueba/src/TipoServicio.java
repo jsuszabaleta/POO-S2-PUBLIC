@@ -13,15 +13,13 @@ public enum TipoServicio {
         this.duracionMin = duracionMin;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public int getDuracionMin() {
-        return duracionMin;
+    @Override
+    public String toString() {
+        return "Tipo de servicio a recibir:" +
+                "| Nombre: " + nombre + '\'' +
+                "| precio: " + precio +
+                "| duracion minima: " + duracionMin
+                ;
     }
 }
+
