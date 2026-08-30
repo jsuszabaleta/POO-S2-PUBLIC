@@ -21,5 +21,17 @@ public enum TipoServicio {
                 "| duracion minima: " + duracionMin
                 ;
     }
+
+   public double getPrecio() {
+    return precio;
 }
+
+public int getDuracionMin() {
+    return duracionMin;
+}
+
+public String getNombre() {
+    return nombre;
+}
+    }
 

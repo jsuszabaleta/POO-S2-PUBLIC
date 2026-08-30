@@ -1,8 +1,8 @@
 public class Barbero extends Persona {
     private static int contadorBarbero = 1;
-    private int calificacion;
+    private final int calificacion;
     private final Especializacion especializacion;
-    private double[] produccionSemanal;
+    private final double[] produccionSemanal;
 
     public Barbero(String nombre, String telefono, int calificacion, Especializacion especializacion) {
         super("BAR-" + contadorBarbero, nombre, telefono);

@@ -19,11 +19,7 @@ public class RangoHorario {
     }
 
     public Boolean seSolapan(RangoHorario otro) {
-        if (this.inicio.isBefore(otro.getFinal()) && otro.getInicio().isBefore(this.finalHorario)) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.inicio.isBefore(otro.getFinal()) && otro.getInicio().isBefore(this.finalHorario);
     }
 
     @Override
