@@ -38,23 +38,40 @@ public class Main {
         RangoHorario horario2 = new RangoHorario(
                 LocalDateTime.of(2026, 8, 30, 16, 0),
                 LocalDateTime.of(2026, 8, 30, 16, 30));
+        RangoHorario horario3 = new RangoHorario(
+                LocalDateTime.of(2026, 8, 30, 17, 0),
+                LocalDateTime.of(2026, 8, 30, 18, 0));
 
         // ---------- 4. Array de objetos: citas sueltas (fuera de Barberia) ----------
         Citas[] citasSueltas = new Citas[2];
         citasSueltas[0] = new Citas((Cliente) personas[0], barbero1, TipoServicio.CORTE_CABELLO, horario1);
         citasSueltas[1] = new Citas((Cliente) personas[1], barbero1, TipoServicio.AFEITADO, horario2);
-
+        //----4.1. Citas en ArrayList:
+        Citas[] citaMultiple = new Citas[1];
+        TipoServicio[] serviciosCombo = { TipoServicio.CORTE_CABELLO, TipoServicio.TRATAMIENTO_BARBA };
+        citaMultiple[0] = new Citas((Cliente) personas[1], barbero1, serviciosCombo, horario2);
         System.out.println("\n===== RECIBOS (interfaz Facturable) =====");
         for (Citas cita : citasSueltas) {
             Facturable f = cita; // upcasting a la interfaz
             System.out.println(f.generarRecibo());
         }
+        System.out.println("\n===== RECIBOS (interfaz Facturable) =====");
+        for (Citas cita : citaMultiple) {
+            Facturable f = cita; // upcasting a la interfaz
+            System.out.println(f.generarRecibo());
+        }
 
         // ---------- 5. Array primitivo ----------
+        ((Barbero) personas[2]).registrarGanancia(0, 22750);
         double[] produccion = barbero1.getProduccionSemanal();
         System.out.println("===== PRODUCCION SEMANAL (arreglo primitivo) =====");
         for (int i = 0; i < produccion.length; i++) {
-            System.out.println("Dia " + i + ": $" + produccion[i]);
+            System.out.println("Dia " + (i+1) + ": $" + produccion[i]);
+        }
+        ((Barbero) personas[2]).registrarGanancia(0, 35000);
+        System.out.println("===== PRODUCCION SEMANAL (arreglo primitivo) =====");
+        for (int i = 0; i < produccion.length; i++) {
+            System.out.println("Dia " + (i+1) + ": $" + produccion[i]);
         }
 
         // ---------- 6. Try/catch #1: servicio inválido, con finally ----------

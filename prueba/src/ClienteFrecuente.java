@@ -1,8 +1,10 @@
 public class ClienteFrecuente extends Cliente{
+    private static int contadorVIP = 1;
     private final double descuento = 0.15;
 
     public ClienteFrecuente(String nombre, String telefono){
-        super(nombre, telefono);
+        super("CLI-FR-" + contadorVIP, nombre, telefono);
+        contadorVIP++;
     }
 
     @Override

@@ -6,6 +6,9 @@ public class Cliente extends Persona{
         super("CLI-" + contadorCliente, nombre, telefono);
         contadorCliente++;
     }
+    protected Cliente(String id, String nombre, String telefono) {
+        super(id, nombre, telefono);
+    }
     @Override
     public void mostrarDetalles(){
         System.out.println("Cliente estandar " + "| Nombre: " + getNombre()
