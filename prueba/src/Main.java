@@ -6,7 +6,7 @@ public class Main {
         // ---------- 1. Array de Personas (polimorfismo + upcasting) ----------
         Persona[] personas = new Persona[3];
         personas[0] = new ClienteFrecuente("Jesus Zabaleta", "305 2383066"); // upcasting
-        personas[1] = new Cliente("Diego Hernandez", "319 5792809");         // upcasting
+        personas[1] = new Cliente("Diego Hernandez", "319 5792809");
         personas[2] = new Barbero("Carlos Ruiz", "123456", 8, Especializacion.CORTE_CABELLO); // upcasting
 
         System.out.println("===== LISTADO DE PERSONAS (polimorfismo) =====");
@@ -30,7 +30,7 @@ public class Main {
             System.out.println("\nNombres distintos: " + personas[0].getNombre() + " vs " + personas[1].getNombre());
         }
 
-        Barbero barbero1 = (Barbero) personas[2]; // downcasting explícito
+        Barbero barbero1 = (Barbero) personas[2];
 
         RangoHorario horario1 = new RangoHorario(
                 LocalDateTime.of(2026, 8, 30, 15, 0),
@@ -38,7 +38,7 @@ public class Main {
         RangoHorario horario2 = new RangoHorario(
                 LocalDateTime.of(2026, 8, 30, 16, 0),
                 LocalDateTime.of(2026, 8, 30, 16, 30));
-        // ---------- 4. Array de objetos: citas sueltas (fuera de Barberia) ----------
+        // ---------- 4. Array de objetos: citas sueltas ----------
         Citas[] citasSueltas = new Citas[2];
         citasSueltas[0] = new Citas((Cliente) personas[0], barbero1, TipoServicio.CORTE_CABELLO, horario1);
         citasSueltas[1] = new Citas((Cliente) personas[1], barbero1, TipoServicio.AFEITADO, horario2);
@@ -48,12 +48,12 @@ public class Main {
         citaMultiple[0] = new Citas((Cliente) personas[1], barbero1, serviciosCombo, horario2);
         System.out.println("\n===== RECIBOS (interfaz Facturable) =====");
         for (Citas cita : citasSueltas) {
-            Facturable f = cita; // upcasting a la interfaz
+            Facturable f = cita;
             System.out.println(f.generarRecibo());
         }
         System.out.println("\n===== RECIBOS (interfaz Facturable) =====");
         for (Citas cita : citaMultiple) {
-            Facturable f = cita; // upcasting a la interfaz
+            Facturable f = cita;
             System.out.println(f.generarRecibo());
         }
 
@@ -88,7 +88,7 @@ public class Main {
             barberia.agendarCita((Cliente) personas[0], barbero1, TipoServicio.CORTE_CABELLO, horario1);
             System.out.println("Cita 1 agendada con exito.");
 
-            // Mismo horario, mismo barbero -> debe chocar
+            // Mismo horario-mismo barbero: chocan
             barberia.agendarCita((Cliente) personas[1], barbero1, TipoServicio.AFEITADO, horario1);
             System.out.println("Cita 2 agendada con exito.");
 

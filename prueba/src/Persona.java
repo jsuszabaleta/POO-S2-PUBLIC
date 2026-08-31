@@ -19,5 +19,9 @@ public abstract class Persona {
         return telefono;
     }
 
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
     public abstract void mostrarDetalles();
 }

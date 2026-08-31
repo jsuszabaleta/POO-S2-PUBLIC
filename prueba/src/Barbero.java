@@ -41,12 +41,4 @@ public class Barbero extends Persona {
             System.out.println("Error: Día de la semana inválido (debe ser entre 0 y 6).");
         }
     }
-
-    public double calcularProduccionTotal() {
-        double totalSemana = 0.0;
-        for (double gananciaDia : this.produccionSemanal) {
-            totalSemana += gananciaDia;
-        }
-        return totalSemana;
-    }
 }
