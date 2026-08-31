@@ -38,10 +38,6 @@ public class Main {
         RangoHorario horario2 = new RangoHorario(
                 LocalDateTime.of(2026, 8, 30, 16, 0),
                 LocalDateTime.of(2026, 8, 30, 16, 30));
-        RangoHorario horario3 = new RangoHorario(
-                LocalDateTime.of(2026, 8, 30, 17, 0),
-                LocalDateTime.of(2026, 8, 30, 18, 0));
-
         // ---------- 4. Array de objetos: citas sueltas (fuera de Barberia) ----------
         Citas[] citasSueltas = new Citas[2];
         citasSueltas[0] = new Citas((Cliente) personas[0], barbero1, TipoServicio.CORTE_CABELLO, horario1);
@@ -76,7 +72,7 @@ public class Main {
 
         // ---------- 6. Try/catch #1: servicio inválido, con finally ----------
         try {
-            Citas citaInvalida = new Citas((Cliente) personas[0], barbero1, (TipoServicio) null, horario1);
+            new Citas((Cliente) personas[0], barbero1, (TipoServicio) null, horario1);
         } catch (ServicioInvalidoException e) {
             System.out.println("\nError esperado (cita sin servicio): " + e.getMessage());
         } finally {
@@ -106,11 +102,30 @@ public class Main {
 
         // ---------- 8. Try/catch #2: buscar una cita que no existe ----------
         try {
-            Citas citaFantasma = barberia.buscarCitaPorId(999);
+            barberia.buscarCitaPorId(999);
         } catch (CitaNoEncontradaException e) {
             System.out.println("Error de busqueda: " + e.getMessage());
         } finally {
             System.out.println("Busqueda de cita finalizada.");
         }
+
+        // ---------- 9. Clase utilitaria: ejemplo de uso en la barbería ----------
+        System.out.println("\n===== UTILIDADES DE BARBERÍA =====");
+        RangoHorario horarioUtil = UtilidadesBarberia.crearHorario(
+                LocalDateTime.of(2026, 8, 31, 10, 0),
+                45
+        );
+
+        System.out.println("Horario generado: " + UtilidadesBarberia.formatearHorario(horarioUtil));
+        System.out.println("Precio formateado: " + UtilidadesBarberia.formatearMoneda(32500.0));
+
+        Citas citaEjemplo = new Citas(
+                (Cliente) personas[1],
+                barbero1,
+                TipoServicio.CORTE_CABELLO,
+                horarioUtil
+        );
+
+        System.out.println(UtilidadesBarberia.resumenCita(citaEjemplo));
     }
 }
