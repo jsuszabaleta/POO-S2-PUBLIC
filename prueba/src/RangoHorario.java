@@ -1,9 +1,9 @@
 import java.time.LocalDateTime;
 
-public class RangoHorario {
+public final class RangoHorario {
 
-    private LocalDateTime inicio;
-    private LocalDateTime finalHorario;
+    private final LocalDateTime inicio;
+    private final LocalDateTime finalHorario;
 
     public RangoHorario(LocalDateTime inicio, LocalDateTime finalHorario) {
         this.inicio = inicio;
